@@ -1,0 +1,28 @@
+body {
+    // font-family: Arial, Helvetica, sans-serif;
+    // font-family: Avenir, Noto, Hiragino Sans, Helvetica, Arial, sans-serif;
+    font-family: Noto, "Hiragino Sans", Helvetica, Arial, sans-serif;
+    color: $black;
+    font-size: 16px;
+    background-color: $white;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.pc-br {
+    display: block;
+    @include mq("sp") {
+        display: none;
+    }
+}
+
+div[role="button"]:focus,
+a:hover,
+a:focus {
+    outline-color: none;
+    outline-style: none;
+    outline-width: 0;
+}

@@ -1,0 +1,19 @@
+.l-container {
+  max-width: 1360px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 98%;
+  @include mq("sp") {
+    max-width: 95%;
+  }
+}
+.l-container__inner {
+  max-width: 1120px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 95%;
+  @include mq("sp") {
+    width: 90%;
+    max-width: 90%;
+  }
+}

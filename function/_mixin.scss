@@ -1,0 +1,48 @@
+/*----------------------------------------------------------*/
+// メディアクエリ設定
+/*----------------------------------------------------------*/
+$layout-width-inner: 1024px;
+$breakpoints: (
+    "sp": "screen and (max-width: 767px)",
+    "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+    "pc": "screen and (min-width: #{$layout-width-inner})",
+);
+
+@mixin mq($breakpoint: sp) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+/*----------------------------------------------------------*/
+// ランドスケープ設定
+/*----------------------------------------------------------*/
+$landscape-breakpoints: (
+    "sp": "screen and (max-device-width: 767px) and (orientation:landscape)",
+    "tab": "screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation:landscape)",
+);
+
+@mixin land($landscape-breakpoint: sp) {
+    @media only #{map-get($landscape-breakpoints, $landscape-breakpoint)} {
+        @content;
+    }
+}
+
+/*----------------------------------------------------------*/
+// デザインカンプからのコーディング向け
+// 字間・行間・フォントサイズの計算用mixin
+/*----------------------------------------------------------*/
+@mixin tracking($tracking) {
+    letter-spacing: ($tracking / 1000) + em;
+}
+
+// 行間の計算とフォントサイズの吐き出し
+@mixin fslh($fs, $lh) {
+    line-height: $lh / $fs;
+    font-size: $fs + px;
+}
+// 行間の計算とフォントサイズの吐き出し(Mac用2倍設定の場合)
+@mixin fslh2($fs, $lh) {
+    line-height: $lh / $fs;
+    font-size: #{$fs / 2}px;
+}
